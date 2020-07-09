@@ -1,0 +1,37 @@
+import tkinter as tkr
+
+master = tkr.Tk()
+userlist = []
+
+master.title("Registration")
+master.geometry("200x120")
+
+
+tkr.Label(master, text = "New user Registration").grid(row = 0, columnspan = 2)
+tkr.Label(master, text = "Full Name").grid(row = 1)
+tkr.Label(master, text = "Phone Number").grid(row = 2)
+tkr.Label(master, text = "Email").grid(row = 3)
+
+e1 = tkr.Entry(master)
+e2 = tkr.Entry(master)
+e3 = tkr.Entry(master)
+
+e1.grid(row = 1, column = 1)
+e2.grid(row = 2, column = 1)
+e3.grid(row = 3, column = 1)
+
+def call():
+    userlist.append([e1.get(),e2.get(), e3.get()])
+    print(userlist)
+    userverify = tkr.Tk()
+    userverify.title("User Verification")
+    userverify.geometry("200x90")
+    tkr.Label(userverify, text = "Your account has been created.").grid(row = 1)
+
+#Button
+b1 = tkr.Button(master, width = 7, height = 1, text = "Register", command = call,)
+b1.grid(row = 4, column = 1, padx = 3, pady = 3)
+b1 = tkr.Button(master, width = 7, height = 1, text = "Quit", command = master.destroy)
+b1.grid(row = 4, column = 0, padx = 3, pady = 3)
+
+tkr.mainloop()
